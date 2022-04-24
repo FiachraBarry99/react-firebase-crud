@@ -35,10 +35,12 @@ function App() {
 
   useEffect(() => {
     const getUsers = async () => {
-      const q = query(collection(db, 'users'), orderBy('age', 'desc'))
+      const q = query(collection(db, "users"), orderBy("age", "desc"));
       onSnapshot(q, (querySnapshot) => {
-        setUsers(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-      })
+        setUsers(
+          querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      });
     };
 
     getUsers();
@@ -65,22 +67,27 @@ function App() {
       {users.map((user) => {
         return (
           <div class="user-card">
-            <h1>Name: {user.name}</h1>
-            <h1>Age: {user.age}</h1>
-            <button
-              onClick={() => {
-                updateUser(user.id, user.age);
-              }}
-            >
-              Increase Age
-            </button>
-            <button
-              onClick={() => {
-                deleteUser(user.id);
-              }}
-            >
-              Delete
-            </button>
+            <div>
+              <h1>Name: {user.name}</h1>
+              <h1>Age: {user.age}</h1>
+            </div>
+            <div class="buttons-section">
+              <button class="update-user"
+                onClick={() => {
+                  updateUser(user.id, user.age);
+                }}
+              >
+                Increase Age
+              </button>
+
+              <button class="delete-user"
+                onClick={() => {
+                  deleteUser(user.id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         );
       })}
