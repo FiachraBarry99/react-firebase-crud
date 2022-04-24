@@ -3,7 +3,9 @@ import "./App.css";
 import { db } from "./firebase-config";
 import {
   collection,
-  getDocs,
+  query,
+  orderBy,
+  onSnapshot,
   addDoc,
   updateDoc,
   doc,
@@ -33,8 +35,10 @@ function App() {
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const q = query(collection(db, 'users'), orderBy('age', 'desc'))
+      onSnapshot(q, (querySnapshot) => {
+        setUsers(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      })
     };
 
     getUsers();
