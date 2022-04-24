@@ -46,23 +46,25 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        placeholder="Name..."
-        onChange={(event) => {
-          setName(event.target.value);
-        }}
-      />
-      <input
-        type="number"
-        placeholder="Age..."
-        onChange={(event) => {
-          setAge(event.target.value);
-        }}
-      />
-      <button onClick={createUser}>Create User</button>
+      <div class="create-user-inputs">
+        <input
+          placeholder="Name..."
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+        />
+        <input
+          type="number"
+          placeholder="Age..."
+          onChange={(event) => {
+            setAge(event.target.value);
+          }}
+        />
+        <button onClick={createUser}>Create User</button>
+      </div>
       {users.map((user) => {
         return (
-          <div>
+          <div class="user-card">
             <h1>Name: {user.name}</h1>
             <h1>Age: {user.age}</h1>
             <button
