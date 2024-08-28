@@ -1,6 +1,6 @@
 # React-Firebase CRUD app
 
-Yes I know the last the thing the world needs is another React CRUD app but guess what? I didn't build this for you, so suck it.
+Yes I know the last the thing the world needs is another React CRUD app but guess what? I didn't build this for you.
 I built this to get to grips with the React + Firebase combo as I thought it would be good for rapid prototyping of ideas and guess what? It is!
 
 
